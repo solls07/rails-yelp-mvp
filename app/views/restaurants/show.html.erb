@@ -1,0 +1,20 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+  <p><%= @restaurant.category %></p>
+  <p><%= @restaurant.address %></p>
+  <p><%= @restaurant.phone_number %></p>
+    <div class="container mt-5">
+      <p><strong>Reviews</strong></p>
+        <ul class="list-group">
+          <% @restaurant.reviews.each do |review|  %>
+            <div>
+              <p>Rating: <%= review.rating %>/5</p>
+              <p><%= review.content %></p>
+            </div>
+          <% end %>
+        </ul>
+    </div>
+  <div class="container mt-5">
+  <h2>New Review</h2>
+    <%= render "new_review", restaurant: @restaurant, review: @review %>
+</div>
